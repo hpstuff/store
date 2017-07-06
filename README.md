@@ -78,19 +78,14 @@ In your app's main module, import those reducers and use the `StoreModule.provid
 function to provide them to Angular's injector:
 
 ```ts
-import { NgModule } from '@angular/core'
-import { StoreModule } from '@ngrx/store';
+import '@ngrx/strore';
 import { counterReducer } from './counter';
 
-@NgModule({
-  imports: [
-    BrowserModule,
-    StoreModule.provideStore({ counter: counterReducer })
-  ]
-})
-export class AppModule {}
-```
+angular.module('@ngrx/store')
+  .value('_INITIAL_REDUCER', { counter: counterReducer });
 
+angular.module('myApp', ['@ngrx/store']);
+```
 
 You can then inject the `Store` service into your components and services. Use `store.select` to
 _select_ slice(s) of state:
@@ -103,17 +98,7 @@ interface AppState {
   counter: number;
 }
 
-@Component({
-	selector: 'my-app',
-	template: `
-		<button (click)="increment()">Increment</button>
-		<div>Current Count: {{ counter | async }}</div>
-		<button (click)="decrement()">Decrement</button>
-
-		<button (click)="reset()">Reset Counter</button>
-	`
-})
-class MyAppComponent {
+class MyAppController {
 	counter: Observable<number>;
 
 	constructor(private store: Store<AppState>){
