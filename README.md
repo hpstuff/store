@@ -78,7 +78,7 @@ In your app's main module, import those reducers and use the `StoreModule.provid
 function to provide them to Angular's injector:
 
 ```ts
-import '@ngrx/strore';
+import '@ngrx/store';
 import { counterReducer } from './counter';
 
 angular.module('@ngrx/store')
