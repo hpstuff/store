@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var reducer_1 = require("./reducer");
 var dispatcher_1 = require("./dispatcher");
 var store_1 = require("./store");
@@ -32,7 +32,7 @@ function _reducerFactory(dispatcher, reducer) {
 }
 exports._reducerFactory = _reducerFactory;
 ;
-exports.moduleName = angular.module('@ngrx/store', [])
+angular.module('@ngrx/store', [])
     .value('Dispatcher', new dispatcher_1.Dispatcher())
     .factory('Store', ['Dispatcher', 'Reducer', 'State', _storeFactory])
     .factory('Reducer', ['Dispatcher', 'INITIAL_REDUCER', _reducerFactory])
@@ -40,5 +40,4 @@ exports.moduleName = angular.module('@ngrx/store', [])
     .factory('INITIAL_REDUCER', ['_INITIAL_REDUCER', _initialReducerFactory])
     .factory('INITIAL_STATE', ['_INITIAL_STATE', 'INITIAL_REDUCER', _initialStateFactory])
     .value('_INITIAL_REDUCER', null)
-    .value('_INITIAL_STATE', null)
-    .name;
+    .value('_INITIAL_STATE', null);
