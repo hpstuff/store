@@ -33,4 +33,3 @@ dist
 .idea
 spec/ngc/ngfactory/
 spec/ngc/output/
-release
