@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 function combineReducers(reducers) {
     var reducerKeys = Object.keys(reducers);
     var finalReducers = {};
